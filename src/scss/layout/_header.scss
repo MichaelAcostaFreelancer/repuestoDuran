@@ -19,25 +19,38 @@
   .contenido-header {
     padding: 1.5rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
     width: 100%;
     max-width: 120rem;
     margin: 0 auto;
+    position: relative;
     animation: fadeInUp 0.8s ease both;
+    min-height: 6.2rem;
   }
 
+  // removed nav-toggle (no hamburger)
+
   .navegacion-principal {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
     justify-content: center;
+    align-items: center;
   }
 
   .logo {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 10rem;
+    position: absolute;
+    left: 0.8rem;
+    transform: none;
+    z-index: 2;
+    width: 3.8rem;
 
     img {
       width: 100%;
@@ -53,15 +66,20 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.9rem;
+  gap: 1.2rem;
   align-items: center;
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: max-height 0.3s ease, opacity 0.3s ease;
 
   a {
     color: v.$blanco;
-    font-size: 1rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    padding: 0.7rem 0.9rem;
+    padding: 1rem 1.3rem;
     transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 
     &:hover,
@@ -71,6 +89,38 @@
       background: rgba(255,255,255,0.08);
       border-radius: 1rem;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .header .contenido-header {
+    justify-content: flex-start;
+    padding: 1rem 1rem;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+    width: 3.2rem;
+  }
+
+  .navegacion-principal {
+    display: none !important;
+    position: static;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    padding: 0;
+    opacity: 1;
+    max-height: none;
+  }
+
+  .navegacion-principal a {
+    padding: 0.6rem 0.95rem;
   }
 }
 

@@ -57,6 +57,7 @@ function scrollNav() {
   });
 }
 
+
 function initMap() {
   const mapElement = document.getElementById("map");
   if (!mapElement || typeof L === "undefined") {
@@ -83,9 +84,18 @@ function initSwiper() {
   }
 
   new Swiper('.marcas-swiper', {
+    effect: 'coverflow',
+    coverflowEffect: {
+      rotate: 12,
+      stretch: 0,
+      depth: 110,
+      modifier: 1,
+      slideShadows: false,
+    },
     slidesPerView: 1,
-    spaceBetween: 16,
-    loop: false,
+    spaceBetween: 14,
+    loop: true,
+    speed: 800,
     grabCursor: true,
     navigation: {
       nextEl: '.swiper-button-next',
@@ -101,15 +111,20 @@ function initSwiper() {
     breakpoints: {
       640: {
         slidesPerView: 1,
-        spaceBetween: 14,
+        spaceBetween: 12,
       },
       900: {
         slidesPerView: 2,
-        spaceBetween: 18,
+        spaceBetween: 16,
       },
       1200: {
         slidesPerView: 3,
-        spaceBetween: 22,
+        spaceBetween: 18,
+      },
+    },
+    on: {
+      init: function () {
+        document.querySelectorAll('.marcas-swiper .swiper-slide').forEach((s) => s.classList.add('futuristic'));
       },
     },
   });

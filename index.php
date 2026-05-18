@@ -16,6 +16,65 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
   <link rel="stylesheet" href="build/css/app.css" />
+  <style>
+    .header .contenido-header {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      gap: 1rem;
+    }
+
+    .header .logo {
+      position: static;
+      transform: none;
+      z-index: 2;
+      width: 3.8rem;
+    }
+
+    .header .navegacion-principal {
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .header .contenido-header {
+        justify-content: flex-start;
+        padding: 1rem 1rem;
+        flex-direction: row;
+        gap: 0.5rem;
+      }
+
+      .header .logo {
+        position: static;
+        transform: none;
+        width: 3.2rem;
+      }
+
+      .header .navegacion-principal {
+        display: none !important;
+        position: static;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        background: transparent;
+        padding: 0;
+        opacity: 1;
+        max-height: none;
+      }
+
+      .navegacion-principal a {
+        padding: 0.6rem 0.95rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -52,7 +111,7 @@
 
   <section class="video-block">
     <div class="contenedor">
-      <video controls muted playsinline loop>
+      <video muted autoplay>
         <source src="Material_visual/video.mp4" type="video/mp4" />
         Tu navegador no soporta video.
       </video>
