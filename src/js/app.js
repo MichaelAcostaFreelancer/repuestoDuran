@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   navegacionFija();
-  crearGaleria();
   resaltarEnlace();
   scrollNav();
   initMap();
@@ -20,69 +19,6 @@ function navegacionFija() {
       header.classList.remove("fixed");
     }
   });
-}
-
-function crearGaleria() {
-  const CANTIDAD_IAMGENES = 16;
-
-  const galeria = document.querySelector(".galeria-imagenes");
-  if (!galeria) {
-    return;
-  }
-
-  for (let i = 1; i <= CANTIDAD_IAMGENES; i++) {
-    const imagen = document.createElement("IMG");
-    imagen.loading = "lazy";
-    imagen.height = "200";
-    imagen.width = "300";
-    imagen.src = `src/img/gallery/thumb/${i}.jpg`;
-    imagen.alt = "Imagen Galería";
-
-    //Event Handler
-    imagen.onclick = function () {
-      mostrarImagen(i);
-    };
-
-    galeria.appendChild(imagen);
-  }
-}
-
-function mostrarImagen(i) {
-  const imagen = document.createElement("IMG");
-  imagen.src = `src/img/gallery/full/${i}.jpg`;
-  imagen.alt = "Imagen Galería";
-
-  //Crear Boton
-  const cerrarModalBtn = document.createElement("BUTTON");
-  cerrarModalBtn.textContent = "X";
-  cerrarModalBtn.classList.add("btn-cerrar");
-  cerrarModalBtn.onclick = cerrarModal;
-
-  //Generar Modal
-  const modal = document.createElement("DIV");
-  modal.classList.add("modal");
-  modal.onclick = cerrarModal;
-
-  modal.appendChild(imagen);
-  modal.appendChild(cerrarModalBtn);
-  //Agregar HTML
-  const body = document.querySelector("body");
-  body.classList.add("overflow-hidden");
-  body.appendChild(modal);
-
-  console.log(modal);
-}
-
-function cerrarModal() {
-  const modal = document.querySelector(".modal");
-  modal.classList.add("fadeOut");
-
-  setTimeout(() => {
-    modal?.remove();
-
-    const body = document.querySelector("body");
-    body.classList.remove("overflow-hidden");
-  }, 500);
 }
 
 function resaltarEnlace() {
@@ -148,14 +84,9 @@ function initSwiper() {
 
   new Swiper('.marcas-swiper', {
     slidesPerView: 1,
-    centeredSlides: true,
-    spaceBetween: 24,
-    loop: true,
-    speed: 800,
-    autoplay: {
-      delay: 4200,
-      disableOnInteraction: false,
-    },
+    spaceBetween: 16,
+    loop: false,
+    grabCursor: true,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -168,11 +99,17 @@ function initSwiper() {
       enabled: true,
     },
     breakpoints: {
-      768: {
+      640: {
         slidesPerView: 1,
+        spaceBetween: 14,
+      },
+      900: {
+        slidesPerView: 2,
+        spaceBetween: 18,
       },
       1200: {
-        slidesPerView: 1,
+        slidesPerView: 3,
+        spaceBetween: 22,
       },
     },
   });
@@ -275,12 +212,19 @@ function initContactForm() {
       }
 
       if (response.ok && data.success) {
+        const whatsappPhone = "18298047817";
+        const textMessage = `Hola COMPAÑÍA DE REPUESTOS & MULTISERVICIOS PÉREZ DURAN,\n\nNombre: ${nombre}\nCorreo: ${email}\nMensaje: ${mensaje}`;
+        const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(textMessage)}`;
+
+        window.open(whatsappUrl, "_blank");
+
         Swal.fire({
-          title: "¡Excelente!",
-          text: "Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto pronto.",
+          title: "¡Perfecto!",
+          text: "Se guardó tu contacto y se abrió WhatsApp para enviar el mensaje.",
           icon: "success",
           confirmButtonColor: "#c41e3a"
         });
+
         form.reset();
       } else {
         Swal.fire({

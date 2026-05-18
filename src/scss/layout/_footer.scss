@@ -25,7 +25,19 @@
 
     .sociales {
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sociales a {
+        color: v.$blanco;
+        font-size: 2rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: v.$rojo;
+        }
     }
 
     .sociales a {

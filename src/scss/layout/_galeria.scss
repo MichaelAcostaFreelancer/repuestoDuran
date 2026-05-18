@@ -26,16 +26,18 @@
 .swiper {
   position: relative;
   width: 100%;
-  max-width: 100rem;
   margin: 0 auto;
   padding: 1rem 0 4rem;
-  overflow: visible;
+  overflow: hidden;
+  box-sizing: border-box;
 
   .swiper-wrapper {
     align-items: center;
   }
 
   .swiper-slide {
+    position: relative;
+    overflow: hidden;
     background: v.$blanco;
     border-radius: 1.5rem;
     box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.08);
@@ -44,14 +46,111 @@
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    padding: 2.5rem;
+    padding: 2.5rem 2rem;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .swiper-slide:hover {
     transform: translateY(-6px);
     box-shadow: 0 2rem 3.5rem rgba(0, 0, 0, 0.12);
+  }
+
+  .slide-text {
+    color: v.$gris-oscuro;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 760px) {
+    .swiper {
+      padding: 1rem 0 3rem;
+    }
+
+    .swiper-slide {
+      min-height: auto;
+      padding: 1.75rem 1.2rem;
+    }
+
+    .slide-title {
+      font-size: 2rem;
+    }
+
+    .slide-text {
+      font-size: 1.45rem;
+      line-height: 1.7;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+
+  .slide-badge {
+    position: absolute;
+    top: 1.4rem;
+    right: 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    background: rgba(196, 21, 33, 0.12);
+    color: #8e131d;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 1px solid rgba(196, 21, 33, 0.18);
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+  }
+
+  .patrocinador-slide {
+    background: linear-gradient(135deg, rgba(196, 21, 33, 0.1), rgba(255, 255, 255, 0.96));
+    border: 1px solid rgba(196, 21, 33, 0.14);
+    box-shadow: 0 1.5rem 3rem rgba(220, 35, 55, 0.12);
+  }
+
+  .patrocinador-slide::before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    width: 9rem;
+    height: 9rem;
+    background: rgba(196, 21, 33, 0.08);
+    border-radius: 50%;
+    filter: blur(16px);
+    pointer-events: none;
+  }
+
+  .patrocinador-slide::after {
+    content: "";
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 7rem;
+    height: 7rem;
+    background: rgba(255, 78, 78, 0.08);
+    border-radius: 50%;
+    filter: blur(14px);
+    pointer-events: none;
+  }
+
+  .patrocinador-slide .slide-title {
+    color: #c41e3a;
+  }
+
+  .patrocinador-slide .slide-text {
+    color: #4d2428;
   }
 
   .swiper-slide {
@@ -98,11 +197,31 @@
   }
 
   .swiper-button-prev {
-    left: -1rem;
+    left: 0.75rem;
   }
 
   .swiper-button-next {
-    right: -1rem;
+    right: 0.75rem;
+  }
+
+  @media (max-width: 760px) {
+    .swiper-button-prev {
+      left: 0.5rem;
+    }
+
+    .swiper-button-next {
+      right: 0.5rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .swiper-button-prev {
+      left: 0.5rem;
+    }
+
+    .swiper-button-next {
+      right: 0.5rem;
+    }
   }
 
   .swiper-pagination-bullet {

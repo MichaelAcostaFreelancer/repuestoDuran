@@ -47,7 +47,7 @@
 }
 
 .hero-content span {
-    display: inline-block;
+    display: block;
     color: v.$rojo;
     text-transform: uppercase;
     letter-spacing: 0.4em;
@@ -134,6 +134,30 @@
 @keyframes fadeInUp {
     0% { transform: translateY(2rem); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 760px) {
+    .hero {
+        min-height: auto;
+        padding: 6rem 0;
+        background-position: center top;
+    }
+
+    .hero-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.7rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 100%;
+        padding: 1.6rem 2rem;
+        font-size: 1.6rem;
+    }
 }
 
 .contenido-video{
