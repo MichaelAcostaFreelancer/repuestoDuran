@@ -1,0 +1,267 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.sobre-festival{
+    @include m.container;
+}
+
+.contenido-festival {
+    margin: 5rem auto;
+    width: 100%;
+    max-width: 120rem;
+
+    h2{
+        margin-bottom: 2rem;
+    }
+    .fecha{
+        color: v.$azul-claro;
+        font-weight: 700;
+    }
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 5rem;
+    color: v.$negro;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 0.8s ease both;
+}
+
+.section-title span {
+    display: inline-block;
+    color: v.$rojo;
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.section-title h2 {
+    font-size: 4.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.card-grid {
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    @include m.tablet {
+        @include m.grid(2);
+    }
+}
+
+.card-grid--mision {
+    @include m.tablet {
+        @include m.grid(3);
+    }
+}
+
+.card-grid--productos {
+    grid-template-columns: 1fr;
+    @include m.tablet {
+        @include m.grid(2);
+    }
+    @include m.desktop {
+        @include m.grid(4);
+    }
+}
+
+.card {
+    background: v.$blanco;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease both;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 1.8rem 3.5rem rgba(0, 0, 0, 0.12);
+    }
+
+    h3 {
+        margin-bottom: 1.8rem;
+        color: v.$rojo-oscuro;
+        font-size: 3rem;
+    }
+    p {
+        line-height: 1.8;
+    }
+    ul {
+        @include m.resetear-lista;
+        li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #ececec;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.productos-imagenes {
+    @include m.container;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    align-items: stretch;
+    margin: 4rem auto 0 auto;
+    padding: 0 2rem;
+    max-width: 100rem;
+
+    .producto-item {
+        position: relative;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
+        animation: fadeInUp 0.7s ease both;
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+            width: 100%;
+            height: 25rem;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        &:hover img {
+            transform: scale(1.04);
+        }
+    }
+}
+
+#contacto .contacto-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.contacto {
+    background: v.$gris;
+    padding: 6rem 2rem;
+}
+
+.contacto-grid {
+    @include m.container;
+    display: grid;
+    gap: 3rem;
+    max-width: 90rem;
+    margin: 0 auto;
+    justify-items: center;
+    @include m.tablet {
+        @include m.grid(2);
+    }
+}
+
+.contacto-form {
+    background: v.$blanco;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.06);
+    max-width: 64rem;
+    width: 100%;
+
+    form {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    label {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: v.$negro;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        font-size: 1.6rem;
+        resize: vertical;
+    }
+
+    button {
+        width: fit-content;
+        background: v.$rojo;
+        color: v.$blanco;
+        border: none;
+        border-radius: 1rem;
+        padding: 1.5rem 3rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background: v.$rojo-oscuro;
+        }
+    }
+}
+
+.mapa-contacto {
+    min-height: 45rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.1);
+    background: v.$blanco;
+    position: relative;
+    z-index: 0;
+}
+
+#map,
+.mapa-contacto .leaflet-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+.mapa-contacto::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent 30%);
+}
+
+.faq {
+    background: v.$blanco;
+}
+
+.faq-list {
+    @include m.container;
+    display: grid;
+    gap: 2rem;
+}
+
+.faq-item {
+    background: v.$gris;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    border-left: 0.8rem solid v.$rojo;
+
+    h4 {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+    }
+    p {
+        margin: 0;
+    }
+}
