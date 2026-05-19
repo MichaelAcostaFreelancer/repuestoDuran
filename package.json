@@ -1,6 +1,6 @@
 {
   "name": "freelancer-4",
-  "version": "1.0.0-final",
+  "version": "final",
   "description": "Versión final del sitio web de repuestos y multiservicios",
   "main": "index.js",
   "type": "module",
