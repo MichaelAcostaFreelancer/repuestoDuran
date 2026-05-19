@@ -86,15 +86,17 @@ function initSwiper() {
   new Swiper('.marcas-swiper', {
     effect: 'coverflow',
     coverflowEffect: {
-      rotate: 12,
+      rotate: 10,
       stretch: 0,
-      depth: 110,
+      depth: 90,
       modifier: 1,
       slideShadows: false,
     },
     slidesPerView: 1,
-    spaceBetween: 14,
-    loop: true,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    spaceBetween: 16,
+    loop: false,
     speed: 800,
     grabCursor: true,
     navigation: {
@@ -104,6 +106,7 @@ function initSwiper() {
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
+      type: 'bullets',
     },
     keyboard: {
       enabled: true,
@@ -114,12 +117,16 @@ function initSwiper() {
         spaceBetween: 12,
       },
       900: {
-        slidesPerView: 2,
+        slidesPerView: 1.2,
         spaceBetween: 16,
       },
       1200: {
-        slidesPerView: 3,
+        slidesPerView: 2,
         spaceBetween: 18,
+      },
+      1600: {
+        slidesPerView: 2.7,
+        spaceBetween: 20,
       },
     },
     on: {

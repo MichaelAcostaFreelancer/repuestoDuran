@@ -1,6 +1,14 @@
 # COMPAÑÍA DE REPUESTOS & MULTISERVICIOS PÉREZ DURAN
 
+Versión final del proyecto: **1.0.0-final**
+
 Sitio web moderno y responsivo para empresa de repuestos automotrices, construido con HTML5, SCSS y JavaScript.
+
+## 📌 Estado del proyecto
+- Versión final para entrega.
+- Navegación totalmente oculta en modo móvil.
+- Slider de marcas optimizado para escritorio y celular.
+- `node_modules/` ignorado en Git.
 
 ## 🎯 Características Principales
 

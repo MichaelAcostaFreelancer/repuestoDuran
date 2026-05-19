@@ -1,5 +1,5 @@
-@use 'base/variables' as v;
-@use 'base/mixins' as m;
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
 
 .galeria {
     @include m.container;
@@ -29,7 +29,7 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 2rem 0 5rem 0;
-  overflow: visible;
+  overflow: hidden;
   box-sizing: border-box;
 
   .swiper-wrapper {
@@ -51,7 +51,6 @@
     text-align: center;
     transition: transform 0.45s cubic-bezier(.2,.9,.2,1), box-shadow 0.45s ease, filter 0.45s ease;
     width: 100%;
-    max-width: 36rem;
     box-sizing: border-box;
     will-change: transform, box-shadow, filter;
   }
@@ -74,24 +73,30 @@
     padding: 1rem 0 3rem 0;
 
     .swiper-slide {
-      min-height: 16rem;
-      padding: 1.5rem 1rem;
+      min-height: 14rem;
+      padding: 1rem 0.8rem;
+      max-width: 90vw;
     }
 
     .slide-title {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
 
     .slide-text {
-      font-size: 1.3rem;
-      line-height: 1.6;
+      font-size: 1.2rem;
+      line-height: 1.5;
     }
 
     .swiper-button-next,
     .swiper-button-prev {
       width: 3rem;
       height: 3rem;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      display: none !important;
+    }
+    
+    .swiper-pagination {
+      bottom: 0.5rem;
     }
   }
 
@@ -288,10 +293,26 @@
   .swiper-pagination-bullet {
     background: rgba(0, 0, 0, 0.25);
     opacity: 1;
+    width: 0.8rem;
+    height: 0.8rem;
+    transition: all 0.3s ease;
   }
 
   .swiper-pagination-bullet-active {
     background: v.$rojo;
+    width: 1rem;
+    height: 1rem;
+    transform: scale(1.2);
+  }
+  
+  .swiper-pagination {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
   }
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "freelancer-4",
-  "version": "1.0.0",
-  "description": "Aprendiendo SASS y NPM",
+  "version": "1.0.0-final",
+  "description": "Versión final del sitio web de repuestos y multiservicios",
   "main": "index.js",
   "type": "module",
   "scripts": {
