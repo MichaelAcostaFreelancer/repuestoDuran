@@ -93,11 +93,11 @@ function initSwiper() {
       slideShadows: false,
     },
     slidesPerView: 1,
-    centeredSlides: true,
-    centeredSlidesBounds: true,
+    centeredSlides: false,
     spaceBetween: 16,
     loop: false,
     speed: 800,
+    roundLengths: true,
     grabCursor: true,
     navigation: {
       nextEl: '.swiper-button-next',
@@ -115,18 +115,22 @@ function initSwiper() {
       640: {
         slidesPerView: 1,
         spaceBetween: 12,
+        centeredSlides: false,
       },
       900: {
-        slidesPerView: 1.2,
+        slidesPerView: 2,
         spaceBetween: 16,
+        centeredSlides: false,
       },
       1200: {
-        slidesPerView: 2,
+        slidesPerView: 3,
         spaceBetween: 18,
+        centeredSlides: false,
       },
       1600: {
-        slidesPerView: 2.7,
+        slidesPerView: 3,
         spaceBetween: 20,
+        centeredSlides: false,
       },
     },
     on: {
