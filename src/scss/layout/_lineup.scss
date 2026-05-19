@@ -12,6 +12,9 @@
         text-transform: uppercase;
     }
 }
+.p__negrita{
+    font-weight: 500
+}
 .escenarios-contenedor {
     @include m.container;
     @include m.tablet{

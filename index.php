@@ -111,7 +111,7 @@
 
   <section class="video-block">
     <div class="contenedor">
-      <video muted autoplay>
+      <video muted autoplay Loop>
         <source src="Material_visual/video.mp4" type="video/mp4" />
         Tu navegador no soporta video.
       </video>
@@ -334,12 +334,12 @@
       <div class="mapa-contacto" id="map"></div>
       <div class="contacto-form">
         <h3>Datos de contacto</h3>
-        <p>Tel: <a href="tel:+18298047817">+1 829 804 7817</a></p>
-        <p>Email: <a href="mailto:albertopere3k.apd@gmail.com">albertopere3k.apd@gmail.com</a></p>
-        <p>Horario de atención:</p>
+        <p> <span class="p__negrita">Tel: </span><a href="tel:+18298047817">+1 829 804 7817</a></p>
+        <p> <span class="p__negrita">Email: </span><a href="mailto:albertopere3k.apd@gmail.com">albertopere3k.apd@gmail.com</a></p>
+        <p class="p__negrita">Horario de atención:</p>
         <ul>
-          <li>Lunes a Sábados: 08:30 - 06:00</li>
-          <li>Domingos: 8:30 - 12:00</li>
+          <li><span class="p__negrita">Lunes a Sábados: </span> - 06:00</li>
+          <li><span class="p__negrita">Domingos: </span> - 12:00</li>
         </ul>
       </div>
     </div>
