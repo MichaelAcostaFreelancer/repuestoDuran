@@ -207,8 +207,8 @@ Los navegadores cargan automáticamente el mejor formato soportado.
 
 - **Teléfono**: +1 829 804 7817
 - **WhatsApp**: [Link directo](https://wa.me/18298047817)
-- **Email**: ventas@perezduran.com
-- **Redes Sociales**: Instagram, Facebook
+- **Email**: albertopere3k.apd@gmail.com
+- **Redes Sociales**: Instagram, Facebook, WhatsApp
 
 ## 📝 Notas de Desarrollo
 
