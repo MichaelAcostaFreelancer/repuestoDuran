@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function navegacionFija() {
   const header = document.querySelector(".header");
-  const sobreFestival = document.querySelector(".sobre-festival");
+  const seccion = document.querySelector(".seccion");
 
   document.addEventListener("scroll", function () {
-    if (sobreFestival.getBoundingClientRect().bottom < 1) {
+    if (seccion.getBoundingClientRect().bottom < 1) {
       header.classList.add("fixed");
     } else {
       header.classList.remove("fixed");
@@ -22,25 +22,28 @@ function navegacionFija() {
 }
 
 function resaltarEnlace() {
-  document.addEventListener("scroll", function () {
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".navegacion-principal a");
+  const navLinks = document.querySelectorAll(".navegacion-principal a");
+  const sections = Array.from(navLinks)
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
 
-    let actual = "";
+  const updateActiveLink = () => {
+    const checkpoint = window.scrollY + window.innerHeight / 3;
+    let currentId = "";
+
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (window.scrollY >= sectionTop - sectionHeight / 3) {
-        actual = section.id;
+      if (section.offsetTop <= checkpoint) {
+        currentId = section.id;
       }
     });
+
     navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + actual) {
-        link.classList.add("active");
-      }
+      link.classList.toggle("active", link.getAttribute("href") === "#" + currentId);
     });
-  });
+  };
+
+  document.addEventListener("scroll", updateActiveLink);
+  updateActiveLink();
 }
 
 function scrollNav() {
@@ -49,10 +52,15 @@ function scrollNav() {
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      const sectionScroll = e.target.getAttribute("href");
+      const sectionScroll = link.getAttribute("href");
       const section = document.querySelector(sectionScroll);
 
-      section.scrollIntoView({ behavior: "smooth" });
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+
+      navLinks.forEach((item) => item.classList.remove("active"));
+      link.classList.add("active");
     });
   });
 }

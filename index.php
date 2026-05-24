@@ -80,8 +80,8 @@
 <body>
   <header class="header">
     <div class="contenedor contenido-header">
-      <a href="#inicio" class="logo" aria-label="Pérez Durán Logo">
-        <img src="Material_visual/logo.png" alt="Logo Pérez Durán" />
+      <a href="#inicio" class="logo" aria-label="Repuesto Duran">
+        Repuesto Duran
       </a>
       <nav class="navegacion-principal">
         <a href="#marcas">Marcas</a>
@@ -95,6 +95,9 @@
 
   <section class="hero" id="inicio">
     <div class="hero-content contenedor">
+      <div class="hero-logo">
+        <img src="Material_visual/logo.png" alt="Logo Repuesto Duran" />
+      </div>
       <span>Repuestos & Multiservicios</span>
       <h2>Todo para tu vehículo: calidad, confianza y servicio inmediato.</h2>
       <p>
@@ -118,8 +121,8 @@
     </div>
   </section>
 
-  <section id="servicios" class="sobre-festival">
-    <div class="contenido-festival">
+  <section id="servicios" class="seccion">
+    <div class="contenido-seccion">
       <div class="section-title">
         <span>Conócenos</span>
         <h2>Misión, Visión y Valores</h2>
@@ -209,8 +212,8 @@
     </div>
   </section>
 
-  <section id="productos" class="sobre-festival">
-    <div class="contenido-festival">
+  <section id="productos" class="seccion">
+    <div class="contenido-seccion">
       <div class="section-title">
         <span>Productos destacados</span>
         <h2>Lo que ofrecemos</h2>
@@ -302,8 +305,8 @@
     </div>
   </section>
 
-  <section id="local" class="sobre-festival">
-    <div class="contenido-festival">
+  <section id="local" class="seccion">
+    <div class="contenido-seccion">
       <div class="section-title">
         <span>Visítanos</span>
         <h2>Fotos de nuestro local</h2>

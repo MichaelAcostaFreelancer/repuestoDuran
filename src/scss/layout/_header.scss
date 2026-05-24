@@ -50,7 +50,15 @@
     left: 0.8rem;
     transform: none;
     z-index: 2;
-    width: 3.8rem;
+    color: v.$blanco;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
 
     img {
       width: 100%;
@@ -94,17 +102,19 @@
 
 @media (max-width: 768px) {
   .header .contenido-header {
-    justify-content: flex-start;
+    justify-content: center;
     padding: 1rem 1rem;
     flex-direction: row;
     gap: 0.5rem;
   }
 
   .logo {
-    display: none !important;
+    display: inline-flex;
     position: static;
     transform: none;
-    width: 3.2rem;
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .navegacion-principal {

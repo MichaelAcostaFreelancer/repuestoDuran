@@ -70,7 +70,7 @@ proyectoFinal/
 │   │       ├── _header.scss       # Encabezado y navegación
 │   │       ├── _video.scss        # Hero y video
 │   │       ├── _galeria.scss      # Sliders
-│   │       ├── _festival.scss     # Secciones principales
+│   │       ├── _sections.scss     # Secciones principales
 │   │       ├── _footer.scss       # Pie de página
 │   │       └── ...
 │   └── img/
@@ -90,9 +90,6 @@ proyectoFinal/
 │   ├── logo.png
 │   ├── video.mp4
 │   └── WhatsApp Image...  # Fotos de productos
-│
-└── video/
-    └── dj.ogv
 ```
 
 ## 🎨 Paleta de Colores

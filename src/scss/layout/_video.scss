@@ -39,6 +39,19 @@
     animation: fadeInUp 1.2s ease forwards;
 }
 
+.hero-logo {
+    margin: 0 auto 2rem;
+    max-width: 18rem;
+    text-align: center;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 1.5rem;
+        box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+    }
+}
+
 .hero-content span,
 .hero-content h2,
 .hero-content p,

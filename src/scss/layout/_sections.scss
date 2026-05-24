@@ -1,11 +1,11 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
-.sobre-festival{
+.seccion{
     @include m.container;
 }
 
-.contenido-festival {
+.contenido-seccion {
     margin: 5rem auto;
     width: 100%;
     max-width: 120rem;
