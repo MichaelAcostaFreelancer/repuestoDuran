@@ -11,14 +11,28 @@ document.addEventListener("DOMContentLoaded", function () {
 function navegacionFija() {
   const header = document.querySelector(".header");
   const seccion = document.querySelector(".seccion");
+  if (!header || !seccion) return;
 
-  document.addEventListener("scroll", function () {
+  let ticking = false;
+  const updateHeader = () => {
     if (seccion.getBoundingClientRect().bottom < 1) {
       header.classList.add("fixed");
     } else {
       header.classList.remove("fixed");
     }
-  });
+    ticking = false;
+  };
+
+  document.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
 }
 
 function resaltarEnlace() {
@@ -26,7 +40,9 @@ function resaltarEnlace() {
   const sections = Array.from(navLinks)
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
+  if (sections.length === 0) return;
 
+  let ticking = false;
   const updateActiveLink = () => {
     const checkpoint = window.scrollY + window.innerHeight / 3;
     let currentId = "";
@@ -40,9 +56,20 @@ function resaltarEnlace() {
     navLinks.forEach((link) => {
       link.classList.toggle("active", link.getAttribute("href") === "#" + currentId);
     });
+    ticking = false;
   };
 
-  document.addEventListener("scroll", updateActiveLink);
+  document.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveLink);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
   updateActiveLink();
 }
 
@@ -91,8 +118,11 @@ function initSwiper() {
     return;
   }
 
+  const isMobileView = window.innerWidth <= 900;
+  const effectType = isMobileView ? 'slide' : 'coverflow';
+
   new Swiper('.marcas-swiper', {
-    effect: 'coverflow',
+    effect: effectType,
     coverflowEffect: {
       rotate: 10,
       stretch: 0,
@@ -125,7 +155,7 @@ function initSwiper() {
         spaceBetween: 12,
         centeredSlides: false,
       },
-      900: {
+      768: {
         slidesPerView: 2,
         spaceBetween: 16,
         centeredSlides: false,

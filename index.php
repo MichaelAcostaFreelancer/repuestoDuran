@@ -467,6 +467,8 @@
       padding: 2rem 0 4rem;
       position: relative;
       z-index: 2;
+      overflow: hidden;
+      width: 100%;
     }
     
     .swiper .swiper-slide {
@@ -489,6 +491,8 @@
       opacity: 0;
       transform: translateY(20px);
       animation: slideAppear .6s ease forwards;
+      box-sizing: border-box;
+      flex: 0 0 auto;
     }
 
     .swiper .swiper-slide:hover {
